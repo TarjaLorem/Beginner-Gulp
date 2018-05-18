@@ -2,7 +2,8 @@
   "name": "gulptask",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo 'Hello'"
+    "message": "echo 'Pre-commit started'",
+    "lint":"./node_modules/.bin/eslint ./"
   },
   "dependencies": {
     "jquery": "^3.3.1",
@@ -12,6 +13,7 @@
     "eslint": "^4.19.1"
   },
   "pre-commit":[
-    "task"
+    "message",
+    "lint"
   ]
 }
