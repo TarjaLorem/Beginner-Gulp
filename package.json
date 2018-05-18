@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "scripts": {
     "message": "echo 'Pre-commit started'",
-    "lint":"./node_modules/.bin/eslint ./"
+    "lint": "./node_modules/.bin/eslint ./"
   },
   "dependencies": {
     "jquery": "^3.3.1",
     "pre-commit": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
   },
-  "pre-commit":[
+  "pre-commit": [
     "message",
     "lint"
   ]
