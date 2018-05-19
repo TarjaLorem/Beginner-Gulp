@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+      "at-rule-empty-line-before": null,
+      "no-missing-end-of-source-newline": true,
+      "indentation": [ 2, {
+         "except": ["block"],
+         "message": "Please, use 2 spaces for indentation.",
+         "severity": "warning"
+  } ]
+  }
+}

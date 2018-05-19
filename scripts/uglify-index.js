@@ -1,6 +1,6 @@
-const num = 20;
+const num = 50;
 const cb = () => {
-  Math.floor(20);
+  Math.floor(50);
 };
 if (num === true) {
   setTimeout(cb, 1000);
