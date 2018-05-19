@@ -1,9 +1,25 @@
 body {
-  color: blue;
-  h1 {
-      color: #030303;
-      a {
-          color: red;
-      }
-  }
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #DEDEDE;
+  
+  .gulp-title {
+      width: 100%;
+      height: 250px;
+      margin-top: 100px;
+      background: #328138;
+
+    .gulp-desc {
+        font-size: 64px;
+        font-weight: 900;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin: 0 auto;
+        padding-top: 50px;
+        }
+    }
 }
