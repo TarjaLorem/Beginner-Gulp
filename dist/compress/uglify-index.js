@@ -1,1 +1,0 @@
-const num=50,cb=()=>{Math.floor(50)};

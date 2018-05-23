@@ -12,7 +12,7 @@ gulp.task('sass', () => {
 });
 
 gulp.task('eslint', () => {
-  return gulp.src('./scripts/**/*.js').pipe(eslint()).pipe(eslint.failAfterError()).pipe(gulp.dest('./dist/js'));
+  return gulp.src('./scripts/index.js').pipe(eslint()).pipe(eslint.failAfterError()).pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('live', () => {
@@ -23,7 +23,10 @@ gulp.task('live', () => {
 gulp.task('del', ()=> {
   return del([
     './css',
-    './js'
+    './dist/js',
+    './dist/compress',
+    './dist/concat',
+    './dist/copy'
    ]);
  });
 
@@ -39,5 +42,5 @@ gulp.task ('copy', () => {
   return gulp.src('./scripts/copy-index.js').pipe(gulpCopy('./scripts', { prefix: 1 })).pipe(gulp.dest('./dist/copy'));
 });
 
-gulp.task('bundled', ['eslint', 'sass']);
+gulp.task('bundled', ['eslint', 'sass', 'concat', 'compress', 'copy']);
 
