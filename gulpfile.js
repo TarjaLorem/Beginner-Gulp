@@ -5,14 +5,15 @@ const gulp = require('gulp'),
       gulpCopy = require('gulp-copy'),
       uglify = require('gulp-uglify-es').default,
       livereload = require('gulp-livereload'),
-      del = require('del');
+      del = require('del'),
+      pump = require ('pump');
 
 gulp.task('sass', () => {
-  return gulp.src('./sass/**/*.scss').pipe(sass()).pipe(gulp.dest('./css'));
+  return gulp.src('./sass/**/*.scss').pipe(sass()).pipe(gulp.dest('./prod/css'));
 });
 
 gulp.task('eslint', () => {
-  return gulp.src('./scripts/index.js').pipe(eslint()).pipe(eslint.failAfterError()).pipe(gulp.dest('./dist/js'));
+  return gulp.src('./scripts/jquery.js').pipe(eslint()).pipe(eslint.failAfterError()).pipe(gulp.dest('./prod/eslint'));
 });
 
 gulp.task('live', () => {
@@ -22,25 +23,26 @@ gulp.task('live', () => {
 
 gulp.task('del', ()=> {
   return del([
-    './css',
-    './dist/js',
-    './dist/compress',
-    './dist/concat',
-    './dist/copy'
+    './prod'
    ]);
  });
 
 gulp.task('concat', () => {
-  return gulp.src('./scripts/**/*.js').pipe(concat('index.js', {newLine: '//New concat file \n'})).pipe(gulp.dest('./dist/concat'))
+  return gulp.src('./scripts/**/*.js').pipe(concat('app.js', {newLine: '//New concat file \n'})).pipe(gulp.dest('./prod/js'))
 });
 
-gulp.task('compress', () => {
-  return gulp.src('./scripts/uglify-index.js').pipe(uglify()).pipe(gulp.dest('./dist/compress'));
+gulp.task ('copyMainPage', () => {
+  return gulp.src('./index.html').pipe(gulp.dest('./prod'));
 });
 
-gulp.task ('copy', () => {
-  return gulp.src('./scripts/copy-index.js').pipe(gulpCopy('./scripts', { prefix: 1 })).pipe(gulp.dest('./dist/copy'));
+gulp.task('compress', (cb) => {
+  pump([
+      gulp.src('./scripts/**/*.js'),
+      uglify(),
+      gulp.dest('./prod/compress'),
+  ], cb);
 });
 
-gulp.task('bundled', ['eslint', 'sass', 'concat', 'compress', 'copy']);
+gulp.task('start', [ 'sass', 'concat', 'compress', 'copyMainPage']);
+
 

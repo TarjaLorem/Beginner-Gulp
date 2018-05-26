@@ -3,12 +3,34 @@
     <head>
         <meta charset="utf-8">
         <title>JS Tools</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="prod/css/style.css">
     </head>
     <body>
-      <div class="gulp-title">
-          <h1 class="gulp-desc">Gulp Tasks</h1>
+      <header class="gulp-header">
+          <h1 class="gulp-desc">Gulp Task</h1>
+      </header>
+      <div class="wrapper">
+        <section class="first-section">
+            <div class="clock-container">
+                <div class="clock">
+                    <div class="line-container">
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="data"></p>
+        </section>
+        <section class="second-section">
+            <button class="btn" type="button">Click me</button>
+                <div class="answer">
+                    <span class="lodash-title default-span">Response on a lodash methods:</span>
+                    <div id="lodash-last-list"></div>
+                    <span class="numeral-title default-span">Response on a numeral methods:</span>
+                    <div id="numeral-first"></div>
+                    <div id="numeral-second"></div>
+                </div> 
+        </section>  
       </div>
-    <script src="scripts/index.js"></script>  
+    <script src="bundle.js"></script>  
     </body>
 </html>

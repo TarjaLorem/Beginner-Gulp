@@ -6,9 +6,9 @@
 - sass (compile css code into scss);
 - live (livereload);
 - concat;
-- copy;
+- copyMainPage (copy index.html);
 - compress (minification with uglify);
-- bundled (use more than one task).
+- start (use more than one task).
 
 ### Install
 
@@ -16,5 +16,5 @@
  $ npm install
   ```
 
-#### After install we can use tasks separately or use the command gulp bundled
+#### After install we can use tasks separately or use the command gulp start
   

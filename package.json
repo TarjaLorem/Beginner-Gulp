@@ -4,15 +4,20 @@
   "scripts": {
     "message": "echo 'Pre-commit started'",
     "lint": "./node_modules/.bin/eslint ./",
-    "csslint": "stylelint ./**/*.css"
+    "csslint": "stylelint ./**/*.css",
+    "build": "browserify ./scripts/app.js -o bundle.js"
   },
   "dependencies": {
     "jquery": "^3.3.1",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
+    "numeral": "^2.0.6",
     "pre-commit": "^1.2.2",
     "pump": "^3.0.0",
     "stylelint": "^9.2.1"
   },
   "devDependencies": {
+    "browserify": "^16.2.2",
     "del": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",

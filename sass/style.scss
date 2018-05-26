@@ -4,14 +4,15 @@ body {
     border: 0;
     background: #DEDEDE;
   
-  .gulp-title {
+  .gulp-header {
       width: 100%;
-      height: 250px;
-      margin-top: 100px;
+      height: 100px;
       background: #328138;
+      display: flex;
+      align-items: center;
 
     .gulp-desc {
-        font-size: 64px;
+        font-size: 44px;
         font-weight: 900;
         color: #fff;
         font-family: 'Open Sans', sans-serif;
@@ -19,7 +20,108 @@ body {
         letter-spacing: 5px;
         text-transform: uppercase;
         margin: 0 auto;
-        padding-top: 50px;
         }
     }
+    .wrapper {
+        width: 60%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        .first-section {
+            margin: 0 auto;
+         .clock-container {
+            display: flex;
+            flex-direction: column;
+            .clock {
+                border-radius: 50%;
+                background: #fff;
+                height: 10em;
+                width: 10em;
+                margin: 30px auto 0;
+                box-shadow: 3px 5px 5px;
+                .line-container {
+                    position: relative;
+                    top: 50%;
+                    animation: rotate 60s infinite linear;
+                    .line {
+                        background: #000;
+                        height: 75px;
+                        left: 49.5%;
+                        position: absolute;
+                        width: 2px;
+                        z-index: 8;
+                    }
+                }
+            }
+            .clock-title {
+                font-family: 'Open Sans';
+                font-weight: 900;
+                font-size: 22px;
+                padding: 10px 0;
+                color: #328138; 
+            }
+        }
+       }
+       .second-section {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .answer {
+                background: rgb(255, 255, 255);
+                width: 500px;
+                margin-top: 30px;
+                padding: 15px 0;
+                box-shadow: grey 1px 1px 7px 2px;
+                text-align: center;
+            }
+            .btn {
+                width: 250px;
+                font-family: 'Open Sans'; 
+                font-size: 25px;
+                color: #fff;
+                border-radius: 5px;
+                border: 0px;
+                padding: 5px 20px;
+                transition: all 0.1s;
+                background: #1B431B;
+            }
+            .btn:hover {
+                background: #21511F;
+            }
+            .default-span {
+                font-family: 'Open Sans';
+                font-size: 18px;
+                font-weight: 900;
+                letter-spacing: 1px;
+                color: #090D28;
+            }
+            .default-inner {
+                font-family: 'Open Sans';
+                font-size: 18px;
+                font-weight: 900; 
+            }
+       }
+        .data {
+            display: flex;
+            flex-direction: column;
+            .span_desc {
+                font-family: 'Open Sans';
+                font-weight: 900;
+                font-size: 20px;
+                padding: 15px 0;
+                color: #030303;
+                text-align: center;
+            }
+        }
+        .answer {
+            display: none;
+        }
+        @keyframes rotate {
+            100% {
+              transform: rotateZ(360deg);
+            }
+          }
+    }
 }
+
